@@ -1,23 +1,21 @@
 #include <stdio.h>
 
-struct access_rights {
-   unsigned char execute :1;
-   unsigned char write :1;
-   unsigned char read :1;
+struct S1 {
+  char c;
+  int i;
+  long long l;
 };
 
-union file_access_rights {
-   unsigned int int_value;
-   struct access_rights rights;
-};
+struct S2 {
+  char c;
+  int i;
+  long long l;
+} _attribute_((packed));
 
 int main() {
-  union file_access_rights some_file = {0};
-  some_file.rights.read =1;
-  some_file.rights.write =1;
-  some_file.rights.execute =1;
-  printf("current mode: %u/n", some_file.int_value);
+   struct S1 s1;
+   struct S2 s2;
+   printf("%zu %zu\n", sizeof(s1), sizeof(s2));
 }
-
 
   
