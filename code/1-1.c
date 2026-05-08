@@ -18,4 +18,6 @@ int main() {
   some_file.rights.execute =1;
   printf("current mode: %u/n", some_file.int_value);
 }
+
+
   
